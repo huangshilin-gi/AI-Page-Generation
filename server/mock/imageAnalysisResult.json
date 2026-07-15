@@ -1,0 +1,143 @@
+{
+  "sourceImageCount": 1,
+  "pages": [
+    {
+      "pageIndex": 0,
+      "pageType": "dashboard",
+      "layoutShell": "dashboard-shell",
+      "description": "后台管理仪表盘，包含顶部导航、左侧菜单、统计卡片区和数据表格",
+      "sections": [
+        {
+          "sectionId": "top-navbar",
+          "role": "navigation",
+          "layout": "flex-row",
+          "title": "顶部导航栏",
+          "components": [
+            {
+              "id": "AppLogo",
+              "type": "Navbar",
+              "label": "系统 Logo",
+              "visualStyle": {
+                "bgColor": null,
+                "textColor": "#1F2937",
+                "borderRadius": null
+              }
+            },
+            {
+              "id": "UserMenu",
+              "type": "DropdownMenu",
+              "label": "用户头像菜单",
+              "visualStyle": {
+                "bgColor": null,
+                "textColor": null,
+                "borderRadius": "rounded-full"
+              }
+            }
+          ]
+        },
+        {
+          "sectionId": "sidebar",
+          "role": "navigation",
+          "layout": "flex-col",
+          "title": "左侧导航菜单",
+          "components": [
+            {
+              "id": "SideNav",
+              "type": "Sidebar",
+              "label": "侧边导航",
+              "visualStyle": {
+                "bgColor": "#1E293B",
+                "textColor": "#F8FAFC",
+                "borderRadius": null
+              }
+            }
+          ]
+        },
+        {
+          "sectionId": "stats-row",
+          "role": "dashboard",
+          "layout": "grid",
+          "title": "数据统计卡片区",
+          "components": [
+            {
+              "id": "StatsCard",
+              "type": "Card",
+              "label": "统计卡片",
+              "visualStyle": {
+                "bgColor": "#FFFFFF",
+                "textColor": "#111827",
+                "borderRadius": "rounded-xl"
+              }
+            },
+            {
+              "id": "TrendChart",
+              "type": "Chart",
+              "label": "趋势图表",
+              "visualStyle": {
+                "bgColor": "#FFFFFF",
+                "textColor": null,
+                "borderRadius": "rounded-xl"
+              }
+            }
+          ]
+        },
+        {
+          "sectionId": "data-table",
+          "role": "list",
+          "layout": "single",
+          "title": "数据列表表格",
+          "components": [
+            {
+              "id": "SearchFilter",
+              "type": "Input",
+              "label": "搜索框",
+              "visualStyle": {
+                "bgColor": "#F9FAFB",
+                "textColor": "#6B7280",
+                "borderRadius": "rounded-lg"
+              }
+            },
+            {
+              "id": "DataTable",
+              "type": "Table",
+              "label": "数据表格",
+              "visualStyle": {
+                "bgColor": "#FFFFFF",
+                "textColor": "#374151",
+                "borderRadius": "rounded-lg"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "colorPalette": {
+    "primary": "#3B82F6",
+    "secondary": "#6366F1",
+    "background": "#F3F4F6",
+    "text": "#111827",
+    "accent": "#10B981"
+  },
+  "typography": {
+    "headingStyle": "粗体无衬线 20-24px",
+    "bodyStyle": "常规无衬线 14px"
+  },
+  "detectedTexts": [
+    "仪表盘",
+    "总用户数",
+    "今日活跃",
+    "收入统计",
+    "搜索",
+    "导出",
+    "设置"
+  ],
+  "inferredBehaviors": [
+    "侧边栏菜单导航切换",
+    "统计卡片数据展示",
+    "表格搜索筛选",
+    "用户菜单下拉操作"
+  ],
+  "themeStrategy": "简约蓝白企业风，卡片式布局，高对比度数据展示",
+  "fidelityNotes": "保持左侧深色侧边栏固定宽度，统计卡片四列等宽，表格区域占满剩余空间"
+}

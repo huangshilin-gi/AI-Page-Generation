@@ -1,0 +1,6 @@
+{
+  "eslint.workingDirectories": ["./frontend", "./server"],
+  "typescript.tsserver.watchOptions": {
+    "excludeDirectories": ["server/templates"]
+  }
+}
