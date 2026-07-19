@@ -13,10 +13,16 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
+    const apiProxyTarget = process.env.API_PROXY_TARGET;
+
+    if (!apiProxyTarget) {
+      return [];
+    }
+
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:7001/api/:path*", // Proxy to Backend
+        destination: `${apiProxyTarget}/api/:path*`,
       },
     ];
   },

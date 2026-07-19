@@ -9,6 +9,7 @@ import { useSandpackStore } from "@/store/sandpackStore";
 import { StreamEventType } from "@/types/api";
 import type { FlowType } from "@/types/flow";
 import { isFigmaUrl } from "@/types/flow";
+import { createId } from "@/lib/browserCrypto";
 import {
   FLOW_CONFIG,
   NEXT_STEP_MAP,
@@ -102,7 +103,7 @@ export function useChat() {
 
       // 1. 构造并添加用户消息
       const userMessage: ChatMessage = {
-        id: crypto.randomUUID(),
+        id: createId("message"),
         role: "user",
         content,
         attachments,
@@ -127,7 +128,7 @@ export function useChat() {
 
       // ✨ 立即创建一个 assistant 消息来承载思维链
       const assistantMessage: ChatMessage = {
-        id: crypto.randomUUID(),
+        id: createId("message"),
         role: "assistant",
         content: "", // 内容后续通过 streaming 填充
       };

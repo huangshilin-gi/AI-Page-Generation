@@ -2,12 +2,18 @@
 import { ChatMessage } from "@/types/message";
 import { StreamEvent } from "@/types/api";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ?? "";
+
+function apiUrl(path: string): string {
+  return `${API_BASE_URL}${path}`;
+}
+
 export async function getReactTS_Template(): Promise<
   Record<string, { code: string }>
 > {
-  const response = await fetch("/api/template/react-ts");
+  const response = await fetch(apiUrl("/api/template/react-ts"));
   if (!response.ok) {
-    throw new Error("Failed to fetch template");
+    throw new Error(`Failed to fetch template: ${response.status}`);
   }
   return response.json();
 }
@@ -25,8 +31,7 @@ export async function generateAppStream(
   onChunk: (event: StreamEvent) => void,
 ): Promise<void> {
   try {
-    // 临时直接连接后端，绕过 Next.js 代理以测试 SSE 问题
-    const response = await fetch("http://localhost:7001/api/chat", {
+    const response = await fetch(apiUrl("/api/chat"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
